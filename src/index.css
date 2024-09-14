@@ -1,0 +1,64 @@
+body {
+  background-color: rgb(237, 223, 223);
+  font-family: "Roboto", sans-serif;
+}
+.weather-app {
+  background-color: white;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+header {
+  border-bottom: 1px solid rgb(237, 223, 223);
+  padding: 0 0 30px 0;
+}
+
+form {
+  border-radius: 5px;
+}
+
+.input-search-value {
+  background-color: rgb(237, 223, 223);
+  border: none;
+  width: 80%;
+  padding: 15px 20px;
+  border-radius: 5px;
+}
+.input-search-button {
+  color: white;
+  background-color: rgb(112, 11, 11);
+  padding: 14px 20px;
+  border-radius: 5px;
+}
+
+main {
+  padding: 30px 0;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.655);
+}
+
+span {
+  color: rgb(235, 43, 75);
+  font-weight: 600;
+}
+
+footer {
+  border-top: 1px solid rgb(237, 223, 223);
+  padding-top: 30px;
+  font-size: x-small;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.681);
+}
+
+a {
+  color: purple;
+}
