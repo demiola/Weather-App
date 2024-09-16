@@ -49,7 +49,28 @@ function submitCityValue(event) {
   fetchCityDetails(searchInput.value);
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#weather-forecast");
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  forecastHtml = "";
+  days.forEach((day) => {
+    forecastHtml =
+      forecastHtml +
+      `<div class="weather-forecast-day">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">🌧️</div>
+            <div class="weather-forecast-temps">
+              <div class="weather-forecast-temp">18°</div>
+              <div class="weather-forecast-temp">12°</div>
+            </div>
+          </div>`;
+  });
+
+  forecast.innerHTML = forecastHtml;
+}
+
 let defaultApiUrl = `https://api.shecodes.io/weather/v1/current?query=Lagos&key=52b8211ebf3ae3d722a0780tdeof04f0&units=metric`;
 axios.get(defaultApiUrl).then(updateWeather);
 let formElement = document.querySelector("#enter-city");
 formElement.addEventListener("submit", submitCityValue);
+displayForecast();
