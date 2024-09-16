@@ -63,8 +63,8 @@ p {
 }
 
 #temp-icon {
-  font-size: 45px;
-  margin-top: 25px;
+  width: 88px;
+  height: 88px;
 }
 
 #temp-value {
