@@ -71,7 +71,7 @@ function updateForecast(response) {
               }" class="weather-forecast-icon"/>
             </div>
             <div class="weather-forecast-temps">
-              <div class="weather-forecast-temp">${Math.round(
+              <div class="weather-forecast-temp" id="maximum">${Math.round(
                 day.temperature.maximum
               )}°</div>
               <div class="weather-forecast-temp">${Math.round(

@@ -107,6 +107,10 @@ p {
   padding: 0 10px;
 }
 
+#maximum {
+  font-weight: 600;
+}
+
 footer {
   border-top: 1px solid rgb(237, 223, 223);
   padding-top: 30px;
