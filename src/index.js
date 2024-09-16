@@ -15,6 +15,7 @@ function updateWeather(response) {
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = timeNow(date);
   iconElement.src = response.data.condition.icon_url;
+  fetchForecast(response.data.city);
 }
 
 function timeNow(date) {
@@ -45,32 +46,54 @@ function fetchCityDetails(city) {
 function submitCityValue(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#input-search-value");
-
   fetchCityDetails(searchInput.value);
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
+function updateForecast(response) {
   let forecast = document.querySelector("#weather-forecast");
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   forecastHtml = "";
-  days.forEach((day) => {
-    forecastHtml =
-      forecastHtml +
-      `<div class="weather-forecast-day">
-            <div class="weather-forecast-date">${day}</div>
-            <div class="weather-forecast-icon">🌧️</div>
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="weather-forecast-day">
+            <div class="weather-forecast-date">${formatDay(day.time)}</div>
+            <div>
+              <img src="${
+                day.condition.icon_url
+              }" class="weather-forecast-icon"/>
+            </div>
             <div class="weather-forecast-temps">
-              <div class="weather-forecast-temp">18°</div>
-              <div class="weather-forecast-temp">12°</div>
+              <div class="weather-forecast-temp">${Math.round(
+                day.temperature.maximum
+              )}°</div>
+              <div class="weather-forecast-temp">${Math.round(
+                day.temperature.minimum
+              )}°</div>
             </div>
           </div>`;
+    }
   });
-
   forecast.innerHTML = forecastHtml;
+}
+
+function fetchForecast(city) {
+  let apiKey = "52b8211ebf3ae3d722a0780tdeof04f0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(updateForecast);
 }
 
 let defaultApiUrl = `https://api.shecodes.io/weather/v1/current?query=Lagos&key=52b8211ebf3ae3d722a0780tdeof04f0&units=metric`;
 axios.get(defaultApiUrl).then(updateWeather);
+let defaultApiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?query=Lagos&key=52b8211ebf3ae3d722a0780tdeof04f0&units=metric`;
+axios.get(defaultApiForecastUrl).then(updateForecast);
 let formElement = document.querySelector("#enter-city");
 formElement.addEventListener("submit", submitCityValue);
-displayForecast();
+console.log(axios.get(defaultApiForecastUrl));
