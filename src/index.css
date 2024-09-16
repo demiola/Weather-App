@@ -19,7 +19,7 @@ form {
   border-radius: 5px;
 }
 
-.input-search-value {
+#input-search-value {
   background-color: rgb(237, 223, 223);
   border: none;
   width: 80%;
@@ -52,7 +52,7 @@ p {
   font-weight: 500;
 }
 
-span {
+.weather-detail-figures {
   color: rgb(235, 43, 75);
   font-weight: 600;
 }
@@ -62,17 +62,17 @@ span {
   justify-content: space-evenly;
 }
 
-.temp-icon {
+#temp-icon {
   font-size: 45px;
   margin-top: 25px;
 }
 
-.temp-value {
+#temp-value {
   font-size: 88px;
   font-weight: 500;
 }
 
-.temp-metric {
+#temp-metric {
   font-size: 30px;
   margin-top: 15px;
 }
