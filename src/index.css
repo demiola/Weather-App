@@ -7,6 +7,7 @@ body {
   max-width: 600px;
   padding: 30px;
   border-radius: 15px;
+  margin: 45px auto;
 }
 
 header {
@@ -41,9 +42,14 @@ main {
   justify-content: space-between;
 }
 
+h1 {
+  font-size: 40px;
+}
+
 p {
   line-height: 20px;
-  color: rgba(0, 0, 0, 0.655);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
 }
 
 span {
